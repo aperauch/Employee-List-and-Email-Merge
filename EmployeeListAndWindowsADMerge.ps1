@@ -4,7 +4,7 @@ Import-module ActiveDirectory
 $csvFileToImport = "Employee List.csv"
 
 #Get all names and email addresses for accounts that are enabled and in the LDAP string.
-$ADUsers = get-aduser -Filter {Enabled -eq "True"} -SearchBase "CN=Users,DC=sub-domainexamle,DC=domainexample,DC=com" -Properties name, displayname, mail, CN | Select GivenName, Surname, mail
+$ADUsers = get-aduser -Filter {Enabled -eq "True"} -SearchBase "CN=Users,DC=sub-domainexample,DC=domainexample,DC=com" -Properties name, displayname, mail, CN | Select GivenName, Surname, mail
 
 #Define hash-table variable to store firstname plus lastname and email address as key-value pairs.
 $mailNamePairs = @{}
